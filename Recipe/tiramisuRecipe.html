@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiramisu Recipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Delicious Tiramisu Recipe</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="recipe">
+            <h2>Tiramisu</h2>
+            <img src="path/to/tiramisu.jpg" alt="Tiramisu" class="recipe-image">
+            <div class="recipe-details">
+                <p><strong>Preparation Time:</strong> 30 mins</p>
+                <p><strong>Serves:</strong> 6</p>
+                <p><strong>Difficulty:</strong> Medium</p>
+                <p><strong>Rating:</strong> 
+                    <span class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                </p>
+                <p><strong>Nutritional Information:</strong></p>
+                <ul>
+                    <li>Calories: 450</li>
+                    <li>Fat: 30g</li>
+                    <li>Carbohydrates: 40g</li>
+                    <li>Protein: 6g</li>
+                </ul>
+            </div>
+            <h3>Ingredients</h3>
+            <ul id="ingredient-list">
+                <li><label><input type="checkbox" /> 6 egg yolks</label></li>
+                <li><label><input type="checkbox" /> 3/4 cup sugar</label></li>
+                <li><label><input type="checkbox" /> 1 cup mascarpone cheese</label></li>
+                <li><label><input type="checkbox" /> 1 1/2 cups heavy cream</label></li>
+                <li><label><input type="checkbox" /> 2 cups strong coffee, cooled</label></li>
+                <li><label><input type="checkbox" /> 1/4 cup coffee liqueur</label></li>
+                <li><label><input type="checkbox" /> 1 package ladyfingers</label></li>
+                <li><label><input type="checkbox" /> Cocoa powder for dusting</label></li>
+            </ul>
+            <h3>Steps</h3>
+            <ol id="recipe-steps">
+                <li>In a large bowl, whisk together egg yolks and sugar until thick and pale. <button onclick="startTimer(300)">Start Timer</button></li>
+                <li>Add mascarpone cheese and mix until smooth. <button onclick="startTimer(120)">Start Timer</button></li>
+                <li>In another bowl, whip heavy cream until stiff peaks form. <button onclick="startTimer(300)">Start Timer</button></li>
+                <li>Gently fold whipped cream into mascarpone mixture. <button onclick="startTimer(180)">Start Timer</button></li>
+                <li>Combine coffee and coffee liqueur in a shallow dish. <button onclick="startTimer(60)">Start Timer</button></li>
+                <li>Dip each ladyfinger into the coffee mixture and arrange in a single layer in a baking dish. <button onclick="startTimer(300)">Start Timer</button></li>
+                <li>Spread half of the mascarpone mixture over the ladyfingers. <button onclick="startTimer(180)">Start Timer</button></li>
+                <li>Repeat with another layer of dipped ladyfingers and remaining mascarpone mixture. <button onclick="startTimer(300)">Start Timer</button></li>
+                <li>Cover and refrigerate for at least 4 hours or overnight. <button onclick="startTimer(14400)">Start Timer</button></li>
+                <li>Dust with cocoa powder before serving. <button onclick="startTimer(60)">Start Timer</button></li>
+            </ol>
+            <h3>Video Tutorial</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            <h3>Ingredient Substitution Suggestions</h3>
+            <ul>
+                <li>Mascarpone cheese can be substituted with cream cheese.</li>
+                <li>Ladyfingers can be substituted with sponge cake.</li>
+                <li>Heavy cream can be substituted with whipped coconut cream.</li>
+            </ul>
+            <button onclick="printRecipe()">Print Recipe</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My Cookbook. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="contact-form">
+            <h3>Contact Us</h3>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for "Back to Top" button
+        document.addEventListener("DOMContentLoaded", function() {
+            // Create the button
+            const backToTopButton = document.createElement("button");
+            backToTopButton.innerText = "↑ Back to Top";
+            backToTopButton.id = "back-to-top";
+            document.body.appendChild(backToTopButton);
+
+            // Show or hide the button based on scroll position
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = "block";
+                } else {
+                    backToTopButton.style.display = "none";
+                }
+            });
+
+            // Smooth scroll to top when the button is clicked
+            backToTopButton.addEventListener("click", function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        });
+
+        // JavaScript for Step-by-Step Cooking Timer
+        function startTimer(seconds) {
+            let timer = seconds, minutes, seconds;
+            const interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                alert("Time left: " + minutes + ":" + seconds);
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    alert("Time's up!");
+                }
+            }, 1000);
+        }
+
+        // JavaScript for Printable Recipe Card
+        function printRecipe() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
