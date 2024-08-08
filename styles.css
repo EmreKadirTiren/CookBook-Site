@@ -213,3 +213,22 @@ footer p {
         margin: 5px 0;
     }
 }
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 1em;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: var(--hover-shadow);
+    transition: opacity var(--transition-duration);
+}
+
+#back-to-top:hover {
+    opacity: 0.8;
+}
